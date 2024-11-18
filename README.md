@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Threads Clone
 
-## Getting Started
+A modern social media application inspired by Threads, designed for seamless content sharing and interaction. Built with Next.js, TypeScript, and Firebase for a scalable, full-stack experience.
 
-First, run the development server:
 
-```bash
+**Features**
+
+- User Authentication: Secure and seamless authentication powered by Clerk.
+
+- Dynamic Post Feeds: Real-time updates for posts, ensuring users always see the latest content.
+
+- Responsive Design: Fully optimized for mobile and desktop devices using TailwindCSS.
+
+- Like and Comment System: Engage with posts through likes and comments, updated dynamically.
+
+- User Profiles: Customizable user profiles, allowing users to edit their profile pictures, bios, and more.
+
+- Serverless API Integration: Efficient API endpoints for managing posts, comments, and user interactions.
+
+- Scalable Backend: Built with MongoDB for efficient data storage and retrieval.
+
+- Strong Data Validation: Leveraging React Hook Form and Zod for robust input handling and validation.
+
+
+**Tech Stack**
+
+- User Authentication: Secure and seamless authentication powered by Clerk.
+
+- Dynamic Post Feeds: Real-time updates for posts, ensuring users always see the latest content.
+
+- Responsive Design: Fully optimized for mobile and desktop devices using TailwindCSS.
+
+- Like and Comment System: Engage with posts through likes and comments, updated dynamically.
+
+- User Profiles: Customizable user profiles, allowing users to edit their profile pictures, bios, and more.
+
+- Serverless API Integration: Efficient API endpoints for managing posts, comments, and user interactions.
+
+- Scalable Backend: Built with MongoDB for efficient data storage and retrieval.
+
+- Strong Data Validation: Leveraging React Hook Form and Zod for robust input handling and validation.
+
+**Getting Started**
+
+Prerequisites:
+- Node.js: Ensure you have Node.js installed. Download Node.js
+
+- MongoDB Atlas: Set up a free MongoDB Atlas cluster or run a local instance.
+
+- Clerk API Keys: Obtain your Clerk API keys from the Clerk dashboard.
+
+**Installation**
+
+- Clone the repository:
+git clone https://github.com/steven-serruya/threads
+cd threads
+
+- Install dependencies:
+npm install
+
+- Set up environment variables by creating a .env.local file:
+NEXT_PUBLIC_CLERK_FRONTEND_API=your_clerk_frontend_api
+CLERK_API_KEY=your_clerk_api_key
+MONGODB_URI=your_mongodb_connection_string
+
+- Start the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open http://localhost:3000 in your browser to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Screenshots**
+![Sign-in](public/screenshots/SignIn.png)
+![Username_registration](public/screenshots/username.png)
+![Onboarding](public/screenshots/onboarding.png)
+![Sign-in with google or github](public/screenshots/googleorgithub.png)
+![Homepage](public/screenshots/homepage.png)
+![Replies](public/screenshots/replies.png)
+![Create Thread](public/screenshots/createThread.png)
+![Profile](public/screenshots/profile.png)
+![Search](public/screenshots/search.png)
+![Activity](public/screenshots/activity.png)
+![Sidebar](public/screenshots/sidebar.png)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+**Acknowledgments**
+This project was built under the guidance of JS Mastery, leveraging modern technologies and best practices for full-stack web development.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
