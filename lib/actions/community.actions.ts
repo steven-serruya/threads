@@ -2,9 +2,9 @@
 
 import { FilterQuery, SortOrder } from "mongoose";
 
-import Community from "../models/community.model"
+import Community from "../models/community.model";
 import Thread from "../models/thread.model";
-import User from '../models/users.model'
+import User from "../models/users.model";
 import { connectToDB } from "../mongoose";
 
 export async function createCommunity(

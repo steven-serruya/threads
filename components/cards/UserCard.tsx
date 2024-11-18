@@ -1,7 +1,9 @@
-'use client'
-import { Button } from "../ui/button";
+"use client";
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+import { Button } from "../ui/button";
 
 interface Props {
   id: string;
@@ -11,9 +13,10 @@ interface Props {
   personType: string;
 }
 
-function UserCard( { id, name, username, imgUrl, personType}: Props) {
+function UserCard({ id, name, username, imgUrl, personType }: Props) {
   const router = useRouter();
 
+  const isCommunity = personType === "Community";
 
   return (
     <article className='user-card'>
@@ -36,7 +39,11 @@ function UserCard( { id, name, username, imgUrl, personType}: Props) {
       <Button
         className='user-card_btn'
         onClick={() => {
-          router.push(`/profile/${id}`)
+          if (isCommunity) {
+            router.push(`/communities/${id}`);
+          } else {
+            router.push(`/profile/${id}`);
+          }
         }}
       >
         View
@@ -44,6 +51,5 @@ function UserCard( { id, name, username, imgUrl, personType}: Props) {
     </article>
   );
 }
-
 
 export default UserCard;

@@ -1,10 +1,25 @@
-'use server'
+"use server";
 
-import { connectToDB } from "../mongoose";
-import User from "../models/users.model";
-import { revalidatePath } from "next/cache";
-import Thread from "../models/thread.model";
 import { FilterQuery, SortOrder } from "mongoose";
+import { revalidatePath } from "next/cache";
+
+import Community from "../models/community.model";
+import Thread from "../models/thread.model";
+import User from "../models/users.model";
+import { connectToDB } from "../mongoose";
+
+export async function fetchUser(userId: string) {
+  try {
+    connectToDB();
+
+    return await User.findOne({ id: userId }).populate({
+      path: "communities",
+      model: Community,
+    });
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user: ${error.message}`);
+  }
+}
 
 interface Params {
   userId: string;
@@ -14,14 +29,15 @@ interface Params {
   image: string;
   path: string;
 }
-export async function updateUser(
-{userId,
-username,
-name,
-bio,
-image,
-path} : Params
-): Promise<void> {
+
+export async function updateUser({
+  userId,
+  bio,
+  name,
+  path,
+  username,
+  image,
+}: Params): Promise<void> {
   try {
     connectToDB();
 
@@ -45,20 +61,6 @@ path} : Params
   }
 }
 
-export async function fetchUser(userId: string) {
-  try {
-    connectToDB();
-    return await User
-    .findOne({ id: userId })
-    // .populate({
-    //   path: 'commuunities',
-    //   model: Community
-    // })
-  } catch(error: any) {
-    throw new Error(`Failed to fetch user: ${error.message}`);
-  }
-}
-
 export async function fetchUserPosts(userId: string) {
   try {
     connectToDB();
@@ -68,11 +70,11 @@ export async function fetchUserPosts(userId: string) {
       path: "threads",
       model: Thread,
       populate: [
-        // {
-        //   path: "community",
-        //   model: Community,
-        //   select: "name id image _id", // Select the "name" and "_id" fields from the "Community" model
-        // },
+        {
+          path: "community",
+          model: Community,
+          select: "name id image _id", // Select the "name" and "_id" fields from the "Community" model
+        },
         {
           path: "children",
           model: Thread,
@@ -91,6 +93,7 @@ export async function fetchUserPosts(userId: string) {
   }
 }
 
+// Almost similar to Thead (search + pagination) and Community (search + pagination)
 export async function fetchUsers({
   userId,
   searchString = "",
